@@ -14,7 +14,7 @@ class CreateJenisProducts extends Migration
     public function up()
     {
         Schema::create('jenis_products', function (Blueprint $table) {
-            $table->id();
+            $table->string('id')->primary();
             $table->string('jenis_nama');
             $table->timestamps();
         });

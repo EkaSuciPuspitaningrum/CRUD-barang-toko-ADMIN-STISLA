@@ -48,7 +48,7 @@
             @include('components.header')
 
             <!-- Sidebar -->
-            @include('components.sidebar-mahasiswa')
+            @include('components.sidebar-admin')
 
             <!-- Content -->
             @yield('main')

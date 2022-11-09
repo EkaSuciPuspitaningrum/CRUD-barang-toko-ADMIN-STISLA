@@ -15,43 +15,18 @@
             <input type="hidden" name="_token" value="{{ csrf_token() }}" />
                 <div class="form-row">
                     <div class="form-group col-md-6">
-                        <label for="floatingNim">NIM</label>
-                        <input type="text" class="form-control" name="nim" value="{{ old('nim') }}" placeholder="Nomor Induk Mahasiswa" required="required" autofocus>
-                        @if ($errors->has('nim'))
-                            <span class="text-danger text-left">{{ $errors->first('nim') }}</span>
+                        <label for="floatingID">ID Admin</label>
+                        <input type="text" class="form-control" name="id_admin" value="{{ old('id_admin') }}" placeholder="Nomor ID Admin" required="required" autofocus>
+                        @if ($errors->has('id_admin'))
+                            <span class="text-danger text-left">{{ $errors->first('id_admin') }}</span>
                         @endif
                     </div>
                     <div class="form-group col-md-6">
                         <label for="floatingName">Nama Lengkap</label>
-                        <input type="text" class="form-control" name="nama" value="{{ old('nama') }}" placeholder="Nama Lengkap" required="required" autofocus>
-                        @if ($errors->has('nama'))
-                            <span class="text-danger text-left">{{ $errors->first('nama') }}</span>
+                        <input type="text" class="form-control" name="name" value="{{ old('name') }}" placeholder="Nama Lengkap" required="required" autofocus>
+                        @if ($errors->has('name'))
+                            <span class="text-danger text-left">{{ $errors->first('name') }}</span>
                         @endif
-                    </div>
-                </div>
-                <div class="form-row">
-                    <div class="form-group col-md-4">
-                        <label for="floatingEmail">Kelas</label>
-                        <input type="kelas" class="form-control" name="kelas" value="{{ old('kelas') }}"  required="required" autofocus>
-                        @if ($errors->has('kelas'))
-                            <span class="text-danger text-left">{{ $errors->first('kelas') }}</span>
-                        @endif
-                    </div>
-                    <div class="form-group col-md-4">
-                        <label for="jurusan">Jurusan</label>
-                        <select class="form-control" id="jurusan" name="jurusan">
-                            @foreach ($jurusan as $jurusans)
-                                <option value="{{ $jurusans->id }}">{{ $jurusans->jurusan_name }}</option>
-                            @endforeach
-                        </select required>
-                    </div>
-                    <div class="form-group col-md-4">
-                        <label for="prodi">Prodi</label>
-                        <select class="form-control" id="prodi" name="prodi">
-                            @foreach ($prodi as $prodis)
-                                <option value="{{ $prodis->id }}">{{ $prodis->prodi_name }}</option>
-                            @endforeach
-                        </select required>
                     </div>
                 </div>
                 <div class="form-row">

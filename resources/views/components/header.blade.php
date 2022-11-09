@@ -10,6 +10,6 @@
         <a href="#"
                 data-toggle="dropdown"
                 class="nav-link nav-link-lg nav-link-user">
-                <div class="d-sm-none d-lg-inline-block">Hi, {{auth()->user()->username}}. Semoga hari mu menyenangkan :)</div>
+                <div class="d-sm-none d-lg-inline-block">Hi, {{auth()->user()->name}}. Semoga hari mu menyenangkan :)</div>
         </a>
 </nav>

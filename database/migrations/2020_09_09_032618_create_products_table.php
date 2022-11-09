@@ -17,10 +17,12 @@ class CreateProductsTable extends Migration
             $table->id();
             $table->string('name');
             $table->string('jenis');
+            $table->string('stok');
             $table->text('detail');
             $table->string('image');
             $table->timestamps();
 
+            // $table->foreign('jenis')->references('id')->on('jenis_products');
         });
     }
 

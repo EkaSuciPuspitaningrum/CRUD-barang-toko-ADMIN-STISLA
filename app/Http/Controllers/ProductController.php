@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Jenis;
 use App\Models\Product;
 use Illuminate\Http\Request;
 
@@ -27,7 +28,8 @@ class ProductController extends Controller
      */
     public function create()
     {
-        return view('products.create');
+        $jenis = Jenis::all();
+        return view('products.create', compact('jenis'));
     }
   
     /**
@@ -40,6 +42,8 @@ class ProductController extends Controller
     {
         $request->validate([
             'name' => 'required',
+            'jenis' => 'required',
+            'stok' => 'required',
             'detail' => 'required',
             'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
         ]);
@@ -92,7 +96,9 @@ class ProductController extends Controller
     {
         $request->validate([
             'name' => 'required',
-            'detail' => 'required'
+            'detail' => 'required',
+            'jenis' => 'required',
+            'stok' => 'required'
         ]);
 
         $input = $request->all();

@@ -26,7 +26,7 @@
     </div>
     <div class="card-body">
     
-        <form method="post" action="">
+        <form method="post" action="{{ route('login.perform') }}">
             <input type="hidden" name="_token" value="{{ csrf_token() }}" />
             @include('layouts.partials.messages')
     
@@ -46,16 +46,11 @@
                 @endif
             </div>
     
-            {{-- <div class="form-group mb-3">
-                <input type="checkbox" name="remember" value="1">
-                <label for="remember">Remember me</label>
-            </div> --}}
-    
             <button class="w-100 btn btn-lg btn-primary" type="submit">Login</button>
         </form>
         <br>
         <div class="float-right">
-            <a 
+            <a href="{{route("register.show")}}"
                 class="text-medium">
                 Belum punya akun?
             </a>
