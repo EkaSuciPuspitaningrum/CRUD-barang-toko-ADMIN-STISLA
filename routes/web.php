@@ -16,7 +16,7 @@ use App\Http\Controllers\ProductController;
 */
 
 Route::get('/', function () {
-    return view('products.create');
+    return view('auth.login');
 });
 
 Route::resource('products', ProductController::class);
