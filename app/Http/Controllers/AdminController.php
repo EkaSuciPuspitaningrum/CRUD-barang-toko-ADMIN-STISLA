@@ -24,7 +24,7 @@ class AdminController extends Controller
             $email = $request->input('email');
             $user = User::where('email', $email)->first();
             session()->put('name',$user->name);
-            return redirect('dashboard');    
+            return redirect('/dashboard');
         }else{
             session()->flash('error', 'Email atau Password Salah');
             return redirect()->back();

@@ -12,12 +12,12 @@
 <div class="main-content">
     <section class="section">
         <div class="section-header">
-            <h1>Produk</h1>
+            <h1>Tambah Produk</h1>
         </div>
-    <div class="row">
+    <div class="">
         <div class="card card-primary">
             <div class="card-header">
-                <h4>Tambah Produk</h4>
+                <h4>Data Produk</h4>
             </div>
 
             @if ($errors->any())
@@ -32,12 +32,12 @@
             @endif
 
             <div class="card-body">
-                <form method="post" action="{{ route('products.store') }}"  enctype="multipart/form-data">
+                <form method="POST" action="{{ route('products.store') }}"  enctype="multipart/form-data">
                     @csrf
                         <div class="form-row">
                             <div class="form-group col-md-6">
                                 <label for="name">Nama Produk</label>
-                                <input type="text" name="name" class="form-control" placeholder="Name">
+                                <input type="text" name="name" class="form-control" placeholder="Nama Produk">
                             </div>
                             <div class="form-group col-md-6">
                                 <label for="jenis">Jenis Produk</label>
@@ -56,10 +56,10 @@
                             </div>
                             <div class="form-group col-md-6">
                                 <label for="nama">Foto Produk</label>
-                                <div class="custom-file">
+                                <div class="">
                                     <div class="input-group mb-3">
-                                        <label style="color: white" class="input-group-text btn btn-primary"  for="foto" >Upload</label>
-                                        <input type="file" name="image" class="form-control" placeholder="image">
+                                        <label style="color: white" class="input-group-text btn btn-primary"  for="image" >Upload</label>
+                                        <input type="file" name="image" class="choose form-control" id="image" placeholder="image">
                                      </div>
                                 </div>
                             </div>
@@ -73,7 +73,7 @@
                     <div class="card-footer text-right">
                         <button type="submit" name="submit" class="btn btn-primary">Submit</button>
                     </div>
-                    </form>
+                </form>
             </div>
         </div>
     </div>

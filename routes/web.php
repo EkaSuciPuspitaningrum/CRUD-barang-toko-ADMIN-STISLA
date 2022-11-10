@@ -32,10 +32,19 @@ Route::get('/register', [RegisController::class,'show'])->name('register.show');
 Route::post('/register', [RegisController::class,'perform'])->name('register.perform');
 Route::get('/login', [AdminController::class,'show'])->name('login.show');
 Route::post('login.perform', [AdminController::class,'perform'])->name('login.perform');
-Route::post('login.out', [AdminController::class,'out'])->name('login.out');
+Route::get('login.out', [AdminController::class,'out'])->name('login.out');
 
 //view
-Route::get('dashboard', [DashboardController::class,'show'])->name('dashboard');
-Route::get('upload-produk', function () { return view('products.create'); });
+Route::get('/dashboard', [DashboardController::class,'show'])->name('dashboard.show');
+Route::get('upload-produk', [DashboardController::class,'produk'])->name('upload-produk');
 
+
+//produk
 Route::resource('products', ProductController::class);
+
+Route::get('products.index', [ProductController::class,'index'])->name('products.index');
+Route::get('products.show', [ProductController::class,'show'])->name('products.show');
+Route::get('products.edit', [ProductController::class,'edit'])->name('products.edit');
+Route::post('products.store', [ProductController::class,'store'])->name('products.store');
+Route::post('products.update', [ProductController::class,'update'])->name('products.update');
+Route::post('products.destroy', [ProductController::class,'destroy'])->name('products.destroy');

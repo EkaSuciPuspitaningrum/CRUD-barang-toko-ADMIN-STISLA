@@ -15,14 +15,19 @@
         <div class="section-header">
             <h1>Dashboard</h1>
         </div>
-    <div class="row">
+        @if ($message = Session::get('success'))
+        <div class="alert alert-success">
+            <p>{{ $message }}</p>
+        </div>
+    @endif
+    <div class="">
         <div class="card card-primary">
             <div class="card-header">
                 <h4>Daftar Produk</h4>
             </div>
             <div class="card-body">
                 <div class="table-responsive">
-                    <table class="table-bordered table display nowrap" id="table" style="width: 110%">
+                    <table style="text-align: center" class="table-bordered table display nowrap" id="table" style="width: 110%">
                         <thead>
                             <tr>
                                 <th>No</th>
@@ -31,13 +36,13 @@
                                 <th>Nama</th>
                                 <th>Jenis</th>
                                 <th>Details</th>
-                                <th width="280px">Action</th>
+                                <th>Action</th>
                             </tr>
                         </thead>
                         <tbody>
                             @foreach ($products as $product)
                                 <tr>
-                                    <td>{{ $product + $products->firstItem()}}</td>
+                                    <td>{{ ++$i }}</td>
                                     <td>{{ $product->created_at }}</td>
                                     <td><img src="/image/{{ $product->image }}" width="100px"></td>
                                     <td>{{ $product->name }}</td>
@@ -46,14 +51,14 @@
                                     <td>
                                         <form action="{{ route('products.destroy',$product->id) }}" method="POST">
                         
-                                            <a class="btn btn-info" href="{{ route('products.show',$product->id) }}">Show</a>
+                                            <a class="btn btn-info" href="{{ route('products.show',$product->id) }}"><i class="fa-solid fa-solid fa-eye"></i></a>
                             
-                                            <a class="btn btn-primary" href="{{ route('products.edit',$product->id) }}">Edit</a>
+                                            <a class="btn btn-primary" href="{{ route('products.edit',$product->id) }}"><i class="fa-solid fa-pen-to-square"></i></a>
                         
                                             @csrf
                                             @method('DELETE')
                             
-                                            <button type="submit" class="btn btn-danger">Delete</button>
+                                            <button type="submit" class="btn btn-danger"><i class="fa-solid fa-trash"></i></button>
                                         </form>
                                     </td>
                                 </tr>
@@ -73,6 +78,10 @@
     <script src="assets/modules/datatables/Select-1.2.4/js/dataTables.select.min.js"></script>
     <script src="{{ asset('library/datatables/media/js/jquery.dataTables.min.js') }}"></script>
     <script src="{{ asset('library/jquery-ui-dist/jquery-ui.min.js') }}"></script>
+    <script src="{{ asset('library/sweetalert/dist/sweetalert.min.js') }}"></script>
+    <script src="{{ asset('library/selectric/public/jquery.selectric.min.js') }}"></script>
+    <script src="{{ asset('js/stisla.js') }}"></script>
+    <script src="{{ asset('library/bootstrap/dist/js/bootstrap.min.js') }}"></script>
 
     <!-- Page Specific JS File -->
     <script src="../../js/table.js"></script>

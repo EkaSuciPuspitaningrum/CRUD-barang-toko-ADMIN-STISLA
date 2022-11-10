@@ -15,13 +15,13 @@ class JenisProduk extends Seeder
     public function run()
     {
         DB::table('jenis_products')->insert([
-            ['id' => "A01", 'jenis_nama' => 'Makanan Kering'],
-            ['id' => "A02", 'jenis_nama' => 'Makanan Basah'],
-            ['id' => "B01", 'jenis_nama' => 'Mainan'],
-            ['id' => "C01", 'jenis_nama' => 'Alat Makan'],
-            ['id' => "D01", 'jenis_nama' => 'Obat Oral'],
-            ['id' => "D02", 'jenis_nama' => 'Obat Injeksi'],
-            ['id' => "D03", 'jenis_nama' => 'Obat Luar'],
+            ['id' => 1, 'jenis_nama' => 'Makanan Kering'],
+            ['id' => 2, 'jenis_nama' => 'Makanan Basah'],
+            ['id' => 3, 'jenis_nama' => 'Mainan'],
+            ['id' => 4, 'jenis_nama' => 'Alat Makan'],
+            ['id' => 5, 'jenis_nama' => 'Obat Oral'],
+            ['id' => 6, 'jenis_nama' => 'Obat Injeksi'],
+            ['id' => 7, 'jenis_nama' => 'Obat Luar'],
         ]);
     }
 }

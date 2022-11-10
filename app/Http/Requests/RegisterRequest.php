@@ -24,15 +24,11 @@ class RegisterRequest extends FormRequest
     public function rules()
     {
         return [
+            'id_admin' => 'required',
+            'name' => 'required', 
             'email' => 'required|email:rfc,dns|unique:users,email',
-            'nim' => 'required|unique:users,nim',
-            'username' => 'required|min:3',
-            'password' => 'required|min:8',
-            'kelas' => 'required',
-            'jurusan' => 'required',
-            'prodi' => 'required',
-            // 'password_confirmation' => 'required|same:password',
-            // 'foto' => 'required|image|file|max:1024',
+            'password' => 'required',
+
         ];
     }
 }

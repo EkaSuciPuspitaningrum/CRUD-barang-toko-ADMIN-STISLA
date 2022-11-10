@@ -19,11 +19,11 @@
 
             <li class="{{ Request::is('upload-produk') ? 'active' : '' }}">
                 <a class="nav-link"
-                    href="{{ url('upload-produk') }}"><i class="far fa-solid fa-upload"></i><span>Upload Berkas</span></a>
+                    href="{{ url('upload-produk') }}"><i class="far fa-solid fa-upload"></i><span>Upload Produk</span></a>
             </li>
             
         <div class="hide-sidebar-mini mt-4 mb-4 p-3">
-            <a href="{{ route('login.out') }}" class="btn btn-danger btn-lg btn-block btn-icon-split">
+            <a href="{{ url('login.out') }}" class="btn btn-danger btn-lg btn-block btn-icon-split">
                 <i class="fas fa-check-circle" ></i> SELESAI
             </a>
         </div>
