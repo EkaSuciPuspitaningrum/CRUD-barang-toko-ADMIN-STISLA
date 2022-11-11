@@ -28,8 +28,7 @@ class ProductController extends Controller
      */
     public function create()
     {
-        $jenis = Jenis::all();
-        return view('products.create', compact('jenis'));
+        return view('products.create');
     }
   
     /**
@@ -42,27 +41,20 @@ class ProductController extends Controller
     {
         $request->validate([
             'name' => 'required',
-            'jenis' => 'required',
+            'harga' => 'required',
             'stok' => 'required',
             'detail' => 'required',
             'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
-        ],[
-            'name.required' => 'Nama produk tidak boleh kosong!',
-            'jenis.required' => 'Jenis produk tidak boleh kosong!',
-            'stok.required' => 'Stok produk tidak boleh kosong!',
-            'detail.required' => 'Detail produk tidak boleh kosong!',
-            'image.required' => 'Foto produk produk tidak boleh kosong!',
-            
         ]);
 
         $input = $request->all();
 
         if ($image = $request->file('image')) {
             $destinationPath = 'image/';
-            $profileImage = date('YmdHis') . "." . $image->getClientOriginalExtension();
-            $image->move($destinationPath, $profileImage);
-            $input['image'] = "$profileImage";
-        }
+            $productImage = date('YmdHis') . "." . $image->getClientOriginalExtension();
+            $image->move($destinationPath, $productImage);
+            $input['image'] = "$productImage";
+        } 
   
         Product::create($input);
    
@@ -89,8 +81,7 @@ class ProductController extends Controller
      */
     public function edit(Product $product)
     {   
-        $jenis = Jenis::all();
-        return view('products.edit',compact('product', 'jenis'));
+        return view('products.edit',compact('product'));
     }
   
     /**
@@ -105,7 +96,7 @@ class ProductController extends Controller
         $request->validate([
             'name' => 'required',
             'detail' => 'required',
-            'jenis' => 'required',
+            'harga' => 'required',
             'stok' => 'required'
         ]);
 
@@ -122,7 +113,7 @@ class ProductController extends Controller
         
         $product->update($input);
   
-        return redirect()->route('produk.index')
+        return redirect()->route('products.index')
                         ->with('success','Product updated successfully');
     }
   
@@ -136,7 +127,7 @@ class ProductController extends Controller
     {
         $product->delete();
   
-        return redirect()->route('produk.index')
+        return redirect()->route('products.index')
                         ->with('success','Product deleted successfully');
     }
 }

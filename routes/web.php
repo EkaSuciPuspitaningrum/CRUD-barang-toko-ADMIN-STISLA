@@ -40,11 +40,12 @@ Route::get('upload-produk', [DashboardController::class,'produk'])->name('upload
 
 
 //produk
-Route::resource('products', ProductController::class);
 
-Route::get('products.index', [ProductController::class,'index'])->name('products.index');
-Route::get('products.show', [ProductController::class,'show'])->name('products.show');
-Route::get('products.edit', [ProductController::class,'edit'])->name('products.edit');
-Route::post('products.store', [ProductController::class,'store'])->name('products.store');
-Route::post('products.update', [ProductController::class,'update'])->name('products.update');
-Route::post('products.destroy', [ProductController::class,'destroy'])->name('products.destroy');
+// Route::get('products.index', [ProductController::class,'index'])->name('products.index');
+// Route::get('products.show', [ProductController::class,'show'])->name('products.show');
+// Route::get('products.edit', [ProductController::class,'edit'])->name('products.edit');
+// Route::post('products.store', [ProductController::class,'store'])->name('products.store');
+// Route::post('products.update', [ProductController::class,'update'])->name('products.update');
+// Route::post('products.destroy', [ProductController::class,'destroy'])->name('products.destroy');
+
+Route::resource('products', ProductController::class);

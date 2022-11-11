@@ -16,7 +16,11 @@
             <h1>Dashboard</h1>
         </div>
         @if ($message = Session::get('success'))
-        <div class="alert alert-success">
+        <div class="alert alert-success alert-dismissible show fade">
+            <button class="close"
+                data-dismiss="alert">
+                <span>&times;</span>
+            </button>
             <p>{{ $message }}</p>
         </div>
     @endif
@@ -32,9 +36,10 @@
                             <tr>
                                 <th>No</th>
                                 <th>Tanggal Masuk</th>
-                                <th>Foto</th>
-                                <th>Nama</th>
-                                <th>Jenis</th>
+                                <th>Foto Produk</th>
+                                <th>Nama Produk</th>
+                                <th>Stok Produk</th>
+                                <th>Harga/produk</th>
                                 <th>Details</th>
                                 <th>Action</th>
                             </tr>
@@ -46,9 +51,11 @@
                                     <td>{{ $product->created_at }}</td>
                                     <td><img src="/image/{{ $product->image }}" width="100px"></td>
                                     <td>{{ $product->name }}</td>
-                                    <td>{{ $product->jenis }}</td>
+                                    <td>{{ $product->stok }}</td>
+                                    <td>{{ $product->harga }}</td>
                                     <td>{{ $product->detail }}</td>
                                     <td>
+                                        <form action="{{ route('products.destroy',$product->id) }}" method="post"></form>
                                         <form action="{{ route('products.destroy',$product->id) }}" method="POST">
                         
                                             <a class="btn btn-info" href="{{ route('products.show',$product->id) }}"><i class="fa-solid fa-solid fa-eye"></i></a>

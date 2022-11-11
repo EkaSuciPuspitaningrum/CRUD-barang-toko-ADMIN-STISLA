@@ -30,9 +30,13 @@
                 </ul>
             </div>
             @endif
+            <form method="POST" action="{{ route('products.store') }}"  enctype="multipart/form-data">
 
-            <div class="card-body">
-                <form method="POST" action="{{ route('products.store') }}"  enctype="multipart/form-data">
+
+            </form>
+
+            <form action="{{ route('products.store') }}" method="post" enctype="multipart/form-data">
+                <div class="card-body">
                     @csrf
                         <div class="form-row">
                             <div class="form-group col-md-6">
@@ -40,12 +44,8 @@
                                 <input type="text" name="name" class="form-control" placeholder="Nama Produk">
                             </div>
                             <div class="form-group col-md-6">
-                                <label for="jenis">Jenis Produk</label>
-                                <select class="form-control" id="jenis" name="jenis">
-                                    @foreach ($jenis as $jeniss)
-                                        <option value="{{ $jeniss->id }}">{{ $jeniss->jenis_nama }}</option>
-                                    @endforeach
-                                </select required>
+                                <label for="harga">Harga Produk</label>
+                                <input type="text" name="harga" class="form-control" placeholder="Harga Produk">
                             </div>
                         </div>
                         
@@ -70,11 +70,11 @@
                                 <textarea class="form-control" style="height:150px" name="detail" placeholder="Detail"></textarea>
                             </div>
                         </div>
-                    <div class="card-footer text-right">
-                        <button type="submit" name="submit" class="btn btn-primary">Submit</button>
+                        <div class="card-footer text-right">
+                            <input type="submit" name="submit" class="btn btn-primary">
+                        </div>
                     </div>
-                </form>
-            </div>
+            </form>
         </div>
     </div>
 </div> 

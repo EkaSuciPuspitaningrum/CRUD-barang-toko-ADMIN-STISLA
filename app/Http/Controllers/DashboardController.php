@@ -22,8 +22,7 @@ class DashboardController extends Controller
     }
 
     public function produk(){
-        $jenis = Jenis::all();
-        return view('products.create', compact('jenis'));
+        return view('products.create');
     }
 }
 

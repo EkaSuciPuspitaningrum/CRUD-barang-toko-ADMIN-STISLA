@@ -38,8 +38,8 @@
                                 <input type="text" name="name" class="form-control" value="{{ $product->name }}" disabled>
                             </div>
                             <div class="form-group col-md-4">
-                                <label for="jenis">Jenis Produk</label>
-                                <input type="text" name="jenis" class="form-control" value="{{ $product->jenis }}" disabled>
+                                <label for="harga">Harga Produk</label>
+                                <input type="text" name="harga" class="form-control" value="{{ $product->harga }}" disabled>
                             </div>
                             <div class="form-group col-md-4">
                                 <label for="stok">Stok Produk</label>
